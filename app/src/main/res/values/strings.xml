@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Generalized User Registration</string>
+    <string name="government_ids">Government IDs</string>
+    <string name="tin_no">Tin No.\n</string>
+    <string name="gsis_no">GSIS No.</string>
+    <string name="emergency_contact">Emergency Contact</string>
+    <string name="name">Name</string>
+    <string name="contact">Contact</string>
+    <string name="relationship">Relationship</string>
+    <string name="submit_registration">Submit Registration</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="first_name">First Name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="physical_attributes">Physical Attributes</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="next">Next</string>
+    <string name="educational_attainment">Educational Attainment</string>
+    <string name="elementary_education">Elementary Education</string>
+    <string name="name_of_school">Name of School</string>
+    <string name="course_program">Course/Program</string>
+    <string name="years_attended">Years Attended</string>
+    <string name="secondary_education">Secondary Education</string>
+</resources>
