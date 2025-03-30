@@ -19,7 +19,6 @@ public class Report extends AppCompatActivity {
 
         TextView txtReport = findViewById(R.id.txtReport);
 
-        // Retrieve the data from Intent
         Intent intent = getIntent();
         String firstName = intent.getStringExtra("firstName");
         String middleName = intent.getStringExtra("middleName");
@@ -44,7 +43,6 @@ public class Report extends AppCompatActivity {
         String graduateSchool = intent.getStringExtra("graduateSchool");
         String graduateDegree = intent.getStringExtra("graduateDegree");
 
-        // Construct the report with bold section headers
         SpannableStringBuilder report = new SpannableStringBuilder();
 
         addBoldText(report, "Personal Information:\n");
@@ -68,12 +66,10 @@ public class Report extends AppCompatActivity {
                 .append("College: ").append(collegeSchool).append(" (").append(collegeDegree).append(")\n")
                 .append("Graduate: ").append(graduateSchool).append(" (").append(graduateDegree).append(")\n");
 
-        // Display report
         txtReport.setText(report);
 
     }
 
-    // Helper function to make text bold
     private void addBoldText(SpannableStringBuilder builder, String text) {
         int start = builder.length();
         builder.append(text);

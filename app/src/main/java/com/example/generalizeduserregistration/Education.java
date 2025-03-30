@@ -22,7 +22,6 @@ public class Education extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_education);
 
-        // Get references to text input fields
         txtElementarySchool = findViewById(R.id.txtElementarySchool);
         txtElementaryDegree = findViewById(R.id.txtElementaryDegree);
         txtSecondarySchool = findViewById(R.id.txtSecondarySchool);
@@ -38,11 +37,9 @@ public class Education extends AppCompatActivity {
 
         submitButton.setOnClickListener(v -> {
             if (validateInputs()) {
-                // Retrieve personal data from previous activity
                 Intent receivedIntent = getIntent();
                 Intent reportIntent = new Intent(Education.this, Report.class);
 
-                // Pass personal details
                 reportIntent.putExtra("firstName", receivedIntent.getStringExtra("firstName"));
                 reportIntent.putExtra("middleName", receivedIntent.getStringExtra("middleName"));
                 reportIntent.putExtra("lastName", receivedIntent.getStringExtra("lastName"));
@@ -56,7 +53,6 @@ public class Education extends AppCompatActivity {
                 reportIntent.putExtra("emergencyContact", receivedIntent.getStringExtra("emergencyContact"));
                 reportIntent.putExtra("emergencyRelationship", receivedIntent.getStringExtra("emergencyRelationship"));
 
-                // Pass educational details
                 reportIntent.putExtra("elementarySchool", txtElementarySchool.getText().toString().trim());
                 reportIntent.putExtra("elementaryDegree", txtElementaryDegree.getText().toString().trim());
                 reportIntent.putExtra("secondarySchool", txtSecondarySchool.getText().toString().trim());
@@ -77,19 +73,16 @@ public class Education extends AppCompatActivity {
         boolean isValid = true;
         StringBuilder missingFields = new StringBuilder("Please fill in:\n");
 
-        // Ensure at least one educational field is filled
         if (isEmpty(txtElementarySchool) && isEmpty(txtSecondarySchool) &&
                 isEmpty(txtVocationalSchool) && isEmpty(txtCollegeSchool) && isEmpty(txtGraduateSchool)) {
             missingFields.append("- At least one school\n");
             isValid = false;
         }
 
-        // Ensure degrees match the schools filled
         if (!validatePair(txtVocationalSchool, txtVocationalDegree, "Vocational")) isValid = false;
         if (!validatePair(txtCollegeSchool, txtCollegeDegree, "College")) isValid = false;
         if (!validatePair(txtGraduateSchool, txtGraduateDegree, "Graduate")) isValid = false;
 
-        // If any field is missing, show a Toast message and prevent submission
         if (!isValid) {
             Toast.makeText(this, missingFields.toString(), Toast.LENGTH_LONG).show();
         }
@@ -97,12 +90,10 @@ public class Education extends AppCompatActivity {
         return isValid;
     }
 
-    // Helper method to check if a field is empty
     private boolean isEmpty(TextInputEditText editText) {
         return TextUtils.isEmpty(editText.getText().toString().trim());
     }
 
-    // Helper method to validate school-degree pairs
     private boolean validatePair(TextInputEditText school, TextInputEditText degree, String level) {
         if (!isEmpty(school) && isEmpty(degree)) {
             degree.setError(level + " degree is required!");
